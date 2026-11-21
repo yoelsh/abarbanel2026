@@ -1,0 +1,96 @@
+/* Layout modelled on the 2024 Abarbanel Workshop site */
+:root{
+  /* 2026 colour scheme (2024 used orange #e69138 and brown #857251) */
+  --orange:#1f6f7a;   /* top bar + accents */
+  --brown:#1b5560;    /* titles */
+  --tint:#e7f2f3;     /* highlighted rows */
+  --text:#212121;
+  --grey:#6a6a6a;
+  --line:#e0e0e0;
+  --side:250px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Open Sans",Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:#fff}
+a{color:inherit}
+img{max-width:100%}
+
+/* ---- orange top bar ---- */
+.topbar{position:sticky;top:0;z-index:30;height:64px;background:var(--orange);display:flex;align-items:center;justify-content:center;padding:0 12px}
+.topbar .reg{display:inline-block;padding:6px 22px;border:1px solid rgba(255,255,255,.8);border-radius:3px;color:#fff;text-decoration:none;font-size:15px}
+.topbar .reg:hover{background:rgba(255,255,255,.18)}
+.menu-btn{display:none;position:absolute;left:8px;background:none;border:0;padding:10px;cursor:pointer;color:#fff}
+.menu-btn svg{width:24px;height:24px;display:block}
+
+/* ---- left sidebar ---- */
+.sidebar{position:fixed;top:64px;bottom:0;left:0;width:var(--side);background:#fff;border-right:1px solid var(--line);padding:40px 14px 20px;overflow-y:auto;z-index:20}
+.sidebar .site-title{display:block;text-align:center;font-family:Roboto,Arial,sans-serif;font-weight:500;font-size:22px;line-height:1.3;color:var(--brown);text-decoration:none;padding:0 6px 26px;border-bottom:1px solid var(--line);margin-bottom:22px}
+.sidebar ul{list-style:none;margin:0;padding:0}
+.sidebar li a{display:block;padding:7px 16px;text-decoration:none;color:var(--grey);font-size:15.5px}
+.sidebar li a:hover{color:var(--text)}
+.sidebar li a.active{color:var(--text)}
+
+/* ---- main content ---- */
+main{margin-left:var(--side);padding:48px 56px 60px;max-width:calc(var(--side) + 1000px)}
+.page-title{text-align:center;margin:0 auto 46px}
+.page-title h1{font-family:Roboto,Arial,sans-serif;font-weight:500;font-size:44px;line-height:1.25;color:var(--brown);margin:0}
+.page-title .subtitle{font-family:Roboto,Arial,sans-serif;font-style:italic;font-size:22px;color:var(--orange);margin:14px 0 0}
+.page-title:after{content:"";display:block;width:80px;height:4px;background:var(--brown);margin:22px auto 0;border-radius:2px}
+
+.where{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;margin:-26px 0 40px;font-size:15.5px}
+.where a.place{font-weight:600;text-decoration:none;border-bottom:2px solid var(--orange)}
+.mapbtn{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border:1px solid var(--orange);border-radius:999px;color:var(--orange);text-decoration:none;font-weight:600;font-size:14.5px}
+.mapbtn:hover{background:var(--tint)}
+.mapbtns{display:flex;gap:8px;flex-wrap:wrap}
+
+.intro{display:grid;grid-template-columns:208px 1fr;gap:36px;align-items:start}
+.intro img{width:208px;height:auto;display:block}
+.intro p:first-child{margin-top:0}
+.prize-line{background:var(--tint);border-left:4px solid var(--orange);padding:8px 12px}
+
+h3.u{font-size:16px;font-weight:700;text-decoration:underline;margin:28px 0 8px}
+ul.sq{list-style:square;padding-left:22px;margin:0}
+ul.sq li{margin:3px 0}
+
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:10px}
+.loc iframe{width:100%;height:320px;border:0}
+
+hr.sep{border:0;border-top:1px solid var(--line);margin:40px 0 26px}
+.logos{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;margin-top:18px}
+.logos img{height:62px;width:auto}
+.logos .family{font-family:Roboto,Arial,sans-serif;font-weight:700;font-size:30px;line-height:1.05;color:#212121}
+
+/* ---- program page ---- */
+.talk{padding:20px 0;border-top:1px solid var(--line)}
+.talk:first-child{border-top:0}
+.talk .when{font-style:italic;color:var(--text);margin-right:12px}
+.talk .who{font-weight:400}
+.talk .ttl{font-weight:700;margin-top:8px}
+.talk .abs{text-align:justify;margin-top:6px}
+.talk .abs p{margin:0 0 .7em}
+.talk.prize{background:var(--tint);margin:0 -16px;padding:20px 16px;border-top:0}
+
+/* ---- registration page ---- */
+.form-frame{width:100%;max-width:700px;height:1400px;border:0;display:block;margin:0 auto}
+
+footer{margin-left:var(--side);padding:20px 56px 30px;color:var(--grey);font-size:13px}
+
+/* ---- phones and small tablets ---- */
+@media (max-width:900px){
+  .menu-btn{display:block}
+  .sidebar{transform:translateX(-100%);transition:transform .2s ease;box-shadow:2px 0 10px rgba(0,0,0,.15)}
+  body.menu-open .sidebar{transform:none}
+  main,footer{margin-left:0}
+  main{padding:30px 18px 44px}
+  footer{padding:18px}
+  .page-title{margin-bottom:34px}
+  .page-title h1{font-size:30px}
+  .page-title .subtitle{font-size:18px}
+  .where{margin-top:-14px;margin-bottom:28px}
+  .intro{grid-template-columns:1fr;gap:18px}
+  .intro img{width:180px;margin:0 auto}
+  .loc{grid-template-columns:1fr}
+  .logos img{height:50px}
+  .logos .family{font-size:24px}
+  .talk .abs{text-align:left}
+}
