@@ -68,6 +68,15 @@ hr.sep{border:0;border-top:1px solid var(--line);margin:40px 0 26px}
 .talk .ttl{font-weight:700;margin-top:8px}
 .talk .abs{text-align:justify;margin-top:6px}
 .talk .abs p{margin:0 0 .7em}
+details.absbox{margin-top:6px}
+details.absbox summary{cursor:pointer;color:var(--orange);font-weight:600;font-size:14.5px;list-style:none;display:inline-flex;align-items:center;gap:6px;padding:2px 0;user-select:none}
+details.absbox summary::-webkit-details-marker{display:none}
+details.absbox summary::before{content:"+";display:inline-grid;place-items:center;width:17px;height:17px;border:1.5px solid currentColor;border-radius:50%;font-size:13px;line-height:1}
+details.absbox[open] summary::before{content:"\2013"}
+details.absbox[open] summary{margin-bottom:2px}
+.abs-controls{display:flex;justify-content:flex-end;gap:8px;margin:-20px 0 8px}
+.abs-controls button{font:inherit;font-size:14px;background:#fff;color:var(--orange);border:1px solid var(--orange);border-radius:999px;padding:5px 14px;cursor:pointer}
+.abs-controls button:hover{background:var(--tint)}
 .talk.prize{background:var(--tint);margin:0 -16px;padding:20px 16px;border-top:0}
 
 /* ---- registration page ---- */
@@ -93,4 +102,5 @@ footer{margin-left:var(--side);padding:20px 56px 30px;color:var(--grey);font-siz
   .logos img{height:50px}
   .logos .family{font-size:24px}
   .talk .abs{text-align:left}
+  .abs-controls{justify-content:center;margin-top:-12px}
 }
